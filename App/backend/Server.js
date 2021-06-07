@@ -11,7 +11,7 @@ const server = createServer((request, response) => {
     createReadStream("../dom/index.html").pipe(response);
   } //
   else if (request.url === "/App.js") {
-    response.setHeader("content-type", "application/javascript");
+    response.setHeader("content-type", "text/javascript");
     createReadStream("../frontend/App.js").pipe(response);
   } //
   else if (request.url === "/HttpRequest.js") {
@@ -51,7 +51,7 @@ const server = createServer((request, response) => {
       })
       .on("end", () => {
         data = Buffer.concat(data);
-        writeFile("message.json", data, () => { });
+        writeFile("message.json", data, () => {});
         response.write(data);
         response.end();
       });
