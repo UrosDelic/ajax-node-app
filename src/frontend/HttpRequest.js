@@ -1,9 +1,9 @@
 export default class HttpRequest {
-  postData(url, data) {
+  post(url, data) {
     return this.sendRequest("POST", url, data);
   }
 
-  getData(url) {
+  get(url) {
     return this.sendRequest("GET", url);
   }
 

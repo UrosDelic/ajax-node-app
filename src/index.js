@@ -27,7 +27,7 @@ class DomInterface {
     });
 
     this.getButton.addEventListener("click", () => {
-      this.service.get().then(data => this.showResponseData(data));
+      this.service.getData().then(data => this.showResponseData(data));
     });
 
     this.postButton.addEventListener("click", () => {
@@ -36,13 +36,12 @@ class DomInterface {
         password: this.passwordField.value,
       };
       this.textArea.innerText = "";
-      this.service.post(obj).then(data => this.showResponseData(data));
+      this.service.postData(obj).then(data => this.showResponseData(data));
     });
   }
 
   showResponseData(displayData) {
     if (displayData !== "") {
-      displayData = JSON.parse(displayData);
       console.log(displayData, "displayData");
       for (let element in displayData) {
         if (displayData[element] !== "") {

@@ -4,21 +4,21 @@ export class Service {
   constructor() {
     this.http = new HttpRequest();
   }
-  get() {
+  getData() {
     return this.http
-      .getData("http://localhost:8080/get-data")
+      .get("http://localhost:8080/get-data")
       .then(response => {
-        return response;
+        return JSON.parse(response);
       })
       .catch(error => {
         console.log(error);
       });
   }
-  post(data) {
+  postData(data) {
     return this.http
-      .postData("http://localhost:8080/post-data", data)
+      .post("http://localhost:8080/post-data", data)
       .then(response => {
-        return response;
+        return JSON.parse(response);
       })
       .catch(error => {
         console.log(error);
