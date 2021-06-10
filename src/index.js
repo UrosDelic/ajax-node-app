@@ -32,14 +32,17 @@ class DomInterface {
     });
 
     this.postButton.addEventListener("click", () => {
-      const obj = {
-        email: this.emailField.value,
-        password: this.passwordField.value,
-      };
       this.textArea.innerText = "";
-      this.getData.postData(obj).then(responseData => this.showResponseData(responseData));
+      this.sendValues();
     });
   }
+  sendValues = () => {
+    const obj = {
+      email: this.emailField.value,
+      password: this.passwordField.value,
+    };
+    this.getData.postData(obj).then(responseData => this.showResponseData(responseData));
+  };
 
   showResponseData(displayData) {
     if (displayData === undefined || displayData === "") {
