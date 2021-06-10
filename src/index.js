@@ -1,7 +1,7 @@
-import { Service } from "./service/service.js";
+import { GetData } from "./getdata/GetData.js";
 class DomInterface {
   constructor() {
-    this.service = new Service();
+    this.getData = new GetData();
     this.passwordField = document.getElementById("password");
     this.emailField = document.getElementById("email");
     this.textArea = document.getElementById("logData");
@@ -27,7 +27,8 @@ class DomInterface {
     });
 
     this.getButton.addEventListener("click", () => {
-      this.service.getData().then(data => this.showResponseData(data));
+      this.textArea.innerText = "";
+      this.getData.getData().then(responseData => this.showResponseData(responseData));
     });
 
     this.postButton.addEventListener("click", () => {
@@ -36,7 +37,7 @@ class DomInterface {
         password: this.passwordField.value,
       };
       this.textArea.innerText = "";
-      this.service.postData(obj).then(data => this.showResponseData(data));
+      this.getData.postData(obj).then(responseData => this.showResponseData(responseData));
     });
   }
 
