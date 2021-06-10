@@ -18,6 +18,7 @@ class DomInterface {
       this.postButton.disabled = true;
     }
   };
+
   resetTextArea = () => {
     this.textArea.innerText = "";
   };
@@ -39,6 +40,7 @@ class DomInterface {
       this.sendValues();
     });
   }
+
   sendValues = () => {
     const obj = {
       email: this.emailField.value,
