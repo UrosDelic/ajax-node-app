@@ -17,10 +17,6 @@ export default class HttpRequest {
       http.onload = () => {
         if (http.status >= 200 && http.status < 300) {
           http.response !== "" ? resolve(JSON.parse(http.response)) : resolve(http.response);
-          // if (http.response !== "") {
-          //   resolve(JSON.parse(http.response));
-          // } else resolve(http.response);
-          console.log(http.response, "http response");
         } else {
           reject(http.statusText);
         }
