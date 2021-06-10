@@ -8,23 +8,23 @@ const server = createServer((request, response) => {
   if (request.url === "/") {
     response.setHeader("Access-Control-Allow-Methods", "POST, GET");
     response.setHeader("content-type", "text/html");
-    createReadStream("../dom/index.html").pipe(response);
+    createReadStream("../index.html").pipe(response);
   } //
-  else if (request.url === "/App.js") {
+  else if (request.url === "/index.js") {
     response.setHeader("content-type", "text/javascript");
-    createReadStream("../frontend/App.js").pipe(response);
+    createReadStream("../index.js").pipe(response);
   } //
-  else if (request.url === "/HttpRequest.js") {
+  else if (request.url === "/frontend/HttpRequest.js") {
     response.setHeader("content-type", "text/javascript");
     createReadStream("../frontend/HttpRequest.js").pipe(response);
   } //
-  else if (request.url === "/style.css") {
+  else if (request.url === "/assets/style.css") {
     response.setHeader("content-type", "text/css");
-    createReadStream("../dom/style.css").pipe(response);
+    createReadStream("../assets/style.css").pipe(response);
   } //
   else if (request.url === "/quantox-logo-bkg.png") {
     response.setHeader("content-type", "image/png");
-    createReadStream("../quantox-logo-bkg.png").pipe(response);
+    createReadStream("../assets/quantox-logo-bkg.png").pipe(response);
   }
   // GET DATA FROM AJAX
   else if (request.url === "/get-data" && request.method === "GET") {

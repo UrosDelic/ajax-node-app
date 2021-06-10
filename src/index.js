@@ -1,4 +1,4 @@
-import HttpRequest from "./HttpRequest.js";
+import HttpRequest from "./frontend/HttpRequest.js";
 
 class DomInterface {
   constructor() {
@@ -12,7 +12,6 @@ class DomInterface {
     this.form = document.getElementById("form");
   }
 
-  // funkcija u eventlisteneru mora biti callback
   enableButton = () => {
     if (this.emailField.value !== "" && this.passwordField.value !== "") {
       this.postButton.disabled = false;

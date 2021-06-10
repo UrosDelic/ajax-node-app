@@ -1,11 +1,10 @@
 export default class HttpRequest {
-
   post(url, data) {
-    return this.sendRequest('POST', url, data);
-
+    return this.sendRequest("POST", url, data);
   }
+
   get(url) {
-    return this.sendRequest('GET', url);
+    return this.sendRequest("GET", url);
   }
 
   sendRequest = (method, url, data) => {
@@ -18,7 +17,7 @@ export default class HttpRequest {
       http.onload = () => {
         if (http.status >= 200 && http.status < 300) {
           resolve(http.response);
-          console.log(http.response, 'http response')
+          console.log(http.response, "http response");
         } else {
           reject(http.statusText);
         }
@@ -28,7 +27,8 @@ export default class HttpRequest {
         reject("REJECT message inside onerror");
       };
       http.send(data);
-    })
+    });
+
     return promise;
-  }
+  };
 }
