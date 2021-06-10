@@ -8,17 +8,21 @@ export class GetData {
   async getData() {
     try {
       const response = await this.http.get("http://localhost:8080/get-data");
-      return JSON.parse(response);
+      if (response) {
+        return response;
+      }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
   async postData(data) {
     try {
       const response = await this.http.post("http://localhost:8080/post-data", data);
-      return JSON.parse(response);
+      if (response) {
+        return response;
+      }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 }

@@ -42,14 +42,11 @@ class DomInterface {
   }
 
   showResponseData(displayData) {
-    if (displayData !== "") {
-      console.log(displayData, "displayData");
-      for (let element in displayData) {
-        if (displayData[element] !== "") {
-          this.textArea.innerHTML = `email: ${displayData.email}\npassword: ${displayData.password}`;
-        }
-      }
-    } else this.textArea.innerHTML = `no data to display`;
+    if (displayData === undefined || displayData === "") {
+      this.textArea.innerHTML = `no data to display`;
+    } else {
+      this.textArea.innerHTML = `email: ${displayData.email}\npassword: ${displayData.password}`;
+    }
   }
 }
 
