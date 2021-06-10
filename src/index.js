@@ -1,8 +1,7 @@
-import HttpRequest from "./frontend/HttpRequest.js";
-
+import { Service } from "./service/service.js";
 class DomInterface {
   constructor() {
-    this.httpRequest = new HttpRequest();
+    this.service = new Service();
     this.passwordField = document.getElementById("password");
     this.emailField = document.getElementById("email");
     this.textArea = document.getElementById("logData");
@@ -28,14 +27,7 @@ class DomInterface {
     });
 
     this.getButton.addEventListener("click", () => {
-      this.httpRequest
-        .get("http://localhost:8080/get-data")
-        .then(response => {
-          this.showResponseData(response);
-        })
-        .catch(error => {
-          console.log(error);
-        });
+      this.service.get().then(data => this.showResponseData(data));
     });
 
     this.postButton.addEventListener("click", () => {
@@ -43,16 +35,8 @@ class DomInterface {
         email: this.emailField.value,
         password: this.passwordField.value,
       };
-
       this.textArea.innerText = "";
-      this.httpRequest
-        .post("http://localhost:8080/post-data", obj)
-        .then(response => {
-          this.showResponseData(response);
-        })
-        .catch(error => {
-          console.log(error);
-        });
+      this.service.post(obj).then(data => this.showResponseData(data));
     });
   }
 

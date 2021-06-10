@@ -18,6 +18,10 @@ const server = createServer((request, response) => {
     response.setHeader("content-type", "text/javascript");
     createReadStream("../frontend/HttpRequest.js").pipe(response);
   } //
+  else if (request.url === "/service/service.js") {
+    response.setHeader("content-type", "text/javascript");
+    createReadStream("../service/service.js").pipe(response);
+  } //
   else if (request.url === "/assets/style.css") {
     response.setHeader("content-type", "text/css");
     createReadStream("../assets/style.css").pipe(response);
