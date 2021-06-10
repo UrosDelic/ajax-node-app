@@ -18,6 +18,9 @@ class DomInterface {
       this.postButton.disabled = true;
     }
   };
+  resetTextArea = () => {
+    this.textArea.innerText = "";
+  };
 
   addEventListeners() {
     this.passwordField.addEventListener("change", this.enableButton);
@@ -27,12 +30,12 @@ class DomInterface {
     });
 
     this.getButton.addEventListener("click", () => {
-      this.textArea.innerText = "";
+      this.resetTextArea();
       this.getData.getData().then(responseData => this.showResponseData(responseData));
     });
 
     this.postButton.addEventListener("click", () => {
-      this.textArea.innerText = "";
+      this.resetTextArea();
       this.sendValues();
     });
   }
