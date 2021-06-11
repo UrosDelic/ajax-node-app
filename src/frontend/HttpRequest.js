@@ -8,7 +8,7 @@ export default class HttpRequest {
   }
 
   sendRequest = (method, url, data) => {
-    const promise = new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       const http = new XMLHttpRequest();
       http.open(method, url, data);
       http.setRequestHeader("Content-Type", "application/json");
@@ -16,6 +16,7 @@ export default class HttpRequest {
 
       http.onload = () => {
         if (http.status >= 200 && http.status < 300) {
+          console.log(http, "http iz onload");
           http.response !== "" ? resolve(JSON.parse(http.response)) : resolve(http.response);
         } else {
           reject(http.statusText);
@@ -27,7 +28,5 @@ export default class HttpRequest {
       };
       http.send(data);
     });
-
-    return promise;
   };
 }
