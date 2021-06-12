@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.coam/css2?family=Montserrat:wght@300&display=swap");
+
+body {
+  background: url("../quantox-logo-bkg.png") no-repeat top center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.heading {
+  margin-bottom: 10rem;
+  color: #96ca3a;
+  font-family: "Montserrat", sans-serif;
+}
+
+.app-box {
+  color: #96ca3a;
+  position: absolute;
+  top: 10%;
+  left: 37%;
+}
+input {
+  background: transparent !important;
+  border-bottom: 2px;
+  border: 0px;
+  border-bottom: 2px solid #96ca3a;
+}
+
+textarea {
+  background: transparent;
+}
