@@ -25,7 +25,10 @@ body {
 }
 
 input {
-  width: 47%;
+  appearance: none;
+  -webkit-appearance: none;
+  -ms-progress-appearance: none;
+  width: 265px;
   color: lightgrey;
   background-color: black;
   background: transparent;
@@ -34,6 +37,13 @@ input {
 }
 input:invalid {
   border-color: red;
+}
+
+input::placeholder {
+  color: transparent;
+}
+input:focus::placeholder {
+  color: transparent;
 }
 
 .label-box {
