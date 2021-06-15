@@ -1,13 +1,13 @@
-import HttpRequest from "../frontend/HttpRequest.js";
+import httpRequest from "../frontend/HttpRequest.js";
 
 export class GetData {
   constructor() {
-    this.http = new HttpRequest();
+
   }
 
   async getData() {
     try {
-      const response = await this.http.get("http://localhost:8080/get-data");
+      const response = await httpRequest.get("http://localhost:8080/get-data");
       if (response) {
         return response;
       }
@@ -17,7 +17,7 @@ export class GetData {
   }
   async postData(data) {
     try {
-      const response = await this.http.post("http://localhost:8080/post-data", data);
+      const response = await httpRequest.post("http://localhost:8080/post-data", data);
       if (response) {
         return response;
       }
