@@ -1,11 +1,11 @@
 class HttpRequest {
-
   constructor() {
-    if (HttpRequest.instance === null) {
-      HttpRequest.instance = this
+    if (!HttpRequest.instance) {
+      HttpRequest.instance = this;
     }
     return HttpRequest.instance;
   }
+
   post(url, data) {
     return this.sendRequest("POST", url, data);
   }
@@ -36,6 +36,7 @@ class HttpRequest {
     });
   };
 }
+
 const httpRequest = new HttpRequest();
 Object.freeze(httpRequest);
 export default httpRequest;

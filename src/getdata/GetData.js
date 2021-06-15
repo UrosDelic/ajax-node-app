@@ -1,9 +1,7 @@
 import httpRequest from "../frontend/HttpRequest.js";
 
 export class GetData {
-  constructor() {
-
-  }
+  constructor() {}
 
   async getData() {
     try {
