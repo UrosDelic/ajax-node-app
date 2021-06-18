@@ -38,5 +38,7 @@ class HttpRequest {
 }
 
 const httpRequest = new HttpRequest();
+const h1 = new HttpRequest();
+console.log(httpRequest === h1);
 Object.freeze(httpRequest);
 export default httpRequest;

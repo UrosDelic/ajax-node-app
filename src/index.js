@@ -23,7 +23,7 @@ class DomInterface {
     this.textArea.innerText = "";
   };
 
-  addEventListeners() {
+  loadEventListeners() {
     this.passwordField.addEventListener("change", this.enableButton);
     this.emailField.addEventListener("change", this.enableButton);
     this.form.addEventListener("submit", e => {
@@ -59,4 +59,4 @@ class DomInterface {
 }
 
 const domInterface = new DomInterface();
-domInterface.addEventListeners();
+domInterface.loadEventListeners();
